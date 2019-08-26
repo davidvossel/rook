@@ -207,12 +207,16 @@ function hack_csv() {
     sed -i 's/rook-ceph-mgr-system/rook-ceph-mgr/' "$DESIRED_CSV_FILE_NAME"
     sed -i 's/rook-ceph-mgr-cluster/rook-ceph-mgr/' "$DESIRED_CSV_FILE_NAME"
 
+
     sed -i 's/cephfs-csi-nodeplugin/rook-csi-cephfs-plugin-sa/' "$DESIRED_CSV_FILE_NAME"
+
+
     sed -i 's/cephfs-external-provisioner-runner/rook-csi-cephfs-provisioner-sa/' "$DESIRED_CSV_FILE_NAME"
+    sed -i 's/cephfs-external-provisioner-cfg/rook-csi-cephfs-provisioner-sa/' "$DESIRED_CSV_FILE_NAME"
+
     sed -i 's/rbd-csi-nodeplugin/rook-csi-rbd-plugin-sa/' "$DESIRED_CSV_FILE_NAME"
 
-    sed -i 's/cephfs-external-provisioner-cfg/cephfs-csi-provisioner/' "$DESIRED_CSV_FILE_NAME"
-    sed -i 's/rbd-external-provisioner-cfg/rbd-csi-provisioner/' "$DESIRED_CSV_FILE_NAME"
+    sed -i 's/rbd-external-provisioner-cfg/rook-csi-rbd-provisioner-sa/' "$DESIRED_CSV_FILE_NAME"
     sed -i 's/rbd-external-provisioner-runner/rook-csi-rbd-provisioner-sa/' "$DESIRED_CSV_FILE_NAME"
 }
 

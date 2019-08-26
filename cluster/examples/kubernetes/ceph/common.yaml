@@ -728,8 +728,8 @@ metadata:
   name: rook-ceph-cmd-reporter
   namespace: rook-ceph
 # OLM: END CMD REPORTER SERVICE ACCOUNT
----
 # OLM: BEGIN CLUSTER ROLE
+---
 kind: Role
 apiVersion: rbac.authorization.k8s.io/v1beta1
 metadata:
@@ -793,8 +793,8 @@ rules:
   verbs:
   - "*"
 # OLM: END CLUSTER ROLE
----
 # OLM: BEGIN CMD REPORTER ROLE
+---
 kind: Role
 apiVersion: rbac.authorization.k8s.io/v1beta1
 metadata:
@@ -814,8 +814,8 @@ rules:
   - update
   - delete
 # OLM: END CMD REPORTER ROLE
----
 # OLM: BEGIN CLUSTER ROLEBINDING
+---
 # Allow the operator to create resources in this cluster's namespace
 kind: RoleBinding
 apiVersion: rbac.authorization.k8s.io/v1beta1
@@ -890,8 +890,8 @@ subjects:
   name: rook-ceph-mgr
   namespace: rook-ceph
 # OLM: END CLUSTER ROLEBINDING
----
 # OLM: BEGIN CMD REPORTER ROLEBINDING
+---
 kind: RoleBinding
 apiVersion: rbac.authorization.k8s.io/v1beta1
 metadata:
@@ -906,13 +906,13 @@ subjects:
   name: rook-ceph-cmd-reporter
   namespace: rook-ceph
 # OLM: END CMD REPORTER ROLEBINDING
----
 #################################################################################################################
 # Beginning of pod security policy resources. The example will assume the cluster will be created in the
 # "rook-ceph" namespace. If you want to create the cluster in a different namespace, you will need to modify
 # the roles and bindings accordingly.
 #################################################################################################################
 # OLM: BEGIN CLUSTER POD SECURITY POLICY
+---
 apiVersion: policy/v1beta1
 kind: PodSecurityPolicy
 metadata:
@@ -1387,5 +1387,4 @@ roleRef:
   kind: ClusterRole
   name: rbd-external-provisioner-runner
   apiGroup: rbac.authorization.k8s.io
----
 # OLM: END CSI RBD CLUSTER ROLEBINDING
